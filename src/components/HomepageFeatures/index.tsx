@@ -2,6 +2,9 @@ import type {ReactNode} from 'react';
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 type FeatureItem = {
   title: string;
@@ -11,12 +14,19 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: '¡Únete al Discord oficial!',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        <div>
+        Nuestro centro de operaciones, contamos con canales donde discutimos problemas, hacemos CV review, recomendamos y solucionamos dudas, mantente al tanto de nuevos concursos y dinámicas, también hay un canal de memes!
+        </div>
+        <Link
+        className="button button--primary"
+        to="blog/TODO">
+        Haz click aquí 
+        <i className="bi bi-discord p-3"></i>
+        </Link>  
       </>
     ),
   },
