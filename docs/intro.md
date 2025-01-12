@@ -2,46 +2,15 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# README
 
-Let's discover **Docusaurus in less than 5 minutes**.
+¡Hola! Si esta es la primera vez que entras a la documentación del CAC, recomendamos que termines de leer este README antes de empezar con las demás secciones.
+Comenzamos a escribir este proyecto pensando en dos diferentes approaches:
 
-## Getting Started
+## Newbie Approach
 
-Get started by **creating a new site**.
+Si eres nuev@ en el club y tienes dudas, la idea es que comiences en la sección del Tutorial para que aprendas las bases.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## No-newbie Approach
 
-### What you'll need
-
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Si ya has resuelto varios problemas en Codeforces, entiendes lo que es la complejidad y has participado en las sesiones del club, puedes consultar los archivos por tema que quieres estudiar. También te invitamos fuertemente a contribuir a las listas de problemas y archivos en general.

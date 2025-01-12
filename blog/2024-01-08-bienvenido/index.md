@@ -9,7 +9,7 @@ import Highlight from '@site/src/components/Highlight';
 
 <Highlight>
 
-¡Bienvenido al blog del Club de Algoritmia de CUCEI! 🎉 Este es un espacio diseñado para orientar a todos los interesados en entrar en el Club de Algoritmia de CUCEI, resolver preguntas frecuentes y darte una probadita de lo que es la ***programación competitiva***. ¿Estás listo?
+¡Bienvenido al blog del Club de Algoritmia de CUCEI! 🎉 Este es un espacio diseñado para orientar a todos los interesados en entrar al club, resolver preguntas frecuentes y darte una probadita de lo que es la ***programación competitiva***. ¿Estás listo?
 
 </Highlight>
 
@@ -35,8 +35,6 @@ Dicho lo anterior, participar, estudiar y practicar lo visto en las sesiones del
 
 Además de ser un excelente entrenamiento para mejorar tus habilidades, la programación competitiva está respaldada por gigantes tecnológicos como **Google**, **Meta**, **Amazon**, **Oracle** y **Microsoft**, quienes no solo organizan competencias, sino que también buscan contratar a los talentos destacados.
 
-Consulta más detalles en: [**Actividades y consejos de veteranos**](../2019-05-29-Actividad-y-Consejos.md).
-
 ---
 
 ### **¿Qué es la programación competitiva?**
@@ -56,7 +54,7 @@ En particular, el ICPC es como un maratón de programación para equipos univers
 [**Problema A. Team**](https://codeforces.com/problemset/problem/231/A)  
 Este es un problema sencillo que se puede solucionar de manera rápida con lógica y un par de bucles, es normal si hay muchas cosas que no entiendas, el mundo de la programación competitiva es un poco abrumador al principio, siempre habrán nuevas cosas por aprender pero poco a poco irás avanzando.
 
-Consulta: [**Obteniendo mi primer Accepted**](../2019-05-29-Mi-primer-ac.md).
+Consulta: [**Obteniendo mi primer Accepted**](../2024-01-11-Mi-primer-accepted.md).
 
 ---
 
