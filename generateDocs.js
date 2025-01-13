@@ -46,15 +46,15 @@ const createCategoryJson = (folderPath, label, description) => {
 const generateSubsectionDocs = (sectionPath, subsectionName, subsectionData) => {
   const subsectionPath = path.join(sectionPath, subsectionName);
 
-  // Crear carpeta de la subsección
+  // Crear carpeta de la subsección si no existe
   if (!fs.existsSync(subsectionPath)) {
     fs.mkdirSync(subsectionPath, { recursive: true });
   }
 
-  // Crear el archivo `_category_.json` para la subsección
+  // Crear el archivo "_category_.json" para la subsección
   createCategoryJson(subsectionPath, subsectionName, subsectionData.description);
 
-  // Generar presentaciones dentro de la subsección
+  // Generar  presentaciones dentro de la subsección
   subsectionData.presentations.forEach((presentation) => {
     const safeTitle = presentation.title.replace(/[^a-zA-Z0-9_-]/g, '-');
     const filePath = path.join(subsectionPath, `${safeTitle}.mdx`);
@@ -77,7 +77,6 @@ ${presentation.description}
   });
 };
 
-// Función para generar documentos principales
 const generateDocs = () => {
   Object.keys(data).forEach((section) => {
     const sectionData = data[section];
@@ -88,7 +87,7 @@ const generateDocs = () => {
       fs.mkdirSync(sectionPath, { recursive: true });
     }
 
-    // Crear `_category_.json` para la sección principal
+    // Crear `_category_.json` para la sección principal, está en 
     createCategoryJson(sectionPath, section, sectionData.description);
 
     // Procesar subsecciones dentro de la sección
@@ -101,7 +100,6 @@ const generateDocs = () => {
   console.log('¡Documentos generados exitosamente!');
 };
 
-// Función principal
 const main = () => {
   const rl = readline.createInterface({
     input: process.stdin,
