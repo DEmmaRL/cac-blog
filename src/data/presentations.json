@@ -1,0 +1,95 @@
+{
+  "2024B": {
+    "description": "Diapositivas del semestre 2024B.",
+    "sections": {
+      "Básicos": {
+          "description": "Presentaciones vistas en clases del grupo de básicos.",
+        "presentations": [
+          {
+            "title": "STL, Ordenamientos & Greedy",
+            "sidebarPosition": 2,
+            "description": "Presentación de segunda sesión de básicos.",
+            "slidesLink": "https://drive.google.com/file/d/1i57K6xHfiHg6hg8Ze1-kW-ftHg0dBhHZ/view",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Algoritmos Misceláneos I",
+            "sidebarPosition": 3,
+            "description": "Presentación de tercera sesión de básicos.",
+            "slidesLink": "https://drive.google.com/file/d/1x8ju6-QdVx5iArn2_G5KRf35gcFanS39/view",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Strings I",
+            "sidebarPosition": 4,
+            "description": "Presentación de cuarta sesión de básicos.",
+            "slidesLink": "https://drive.google.com/file/d/1MCJQ4ZtX3VbxM1nfF6T3701cm69584eH/view",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Busqueda Binaria",
+            "sidebarPosition": 5,
+            "description": "Presentación de quinta sesión de básicos.",
+            "slidesLink": "https://drive.google.com/file/d/1fqEgocjQbotIiuuKmizzcTJafGU4KATa/view",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Grafos I",
+            "sidebarPosition": 6,
+            "description": "Presentación de sexta clase de básicos.",
+            "slidesLink": "https://docs.google.com/presentation/d/1HSEnTJ8pTeoU_x32USpPgqeDZLr4x-TXi8I7D3tqiDs",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Programación Dinámica",
+            "sidebarPosition": 7,
+            "description": "Presentación de Programación Dinámica, séptima clase.",
+            "slidesLink": "https://docs.google.com/presentation/d/1xeLTfqqT38yhClEMq1jbpw9G18Mm218jb0T_-OAFX1I/edit?usp=sharing",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Algoritmos Misceláneos II",
+            "sidebarPosition": 8,
+            "description": "Presentación de Algoritmos misceláneos, octava clase, continuación de la tercera clase.",
+            "slidesLink": "https://docs.google.com/presentation/d/1xeLTfqqT38yhClEMq1jbpw9G18Mm218jb0T_-OAFX1I/edit?usp=sharing",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Teoría de números",
+            "sidebarPosition": 9,
+            "description": "Presentación de teoría de números, novena clase.",
+            "slidesLink": "https://docs.google.com/presentation/d/1xeLTfqqT38yhClEMq1jbpw9G18Mm218jb0T_-OAFX1I/edit?usp=sharing",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Combinatoria",
+            "sidebarPosition": 10,
+            "description": "Presentación de combinatoria, décima clase del club.",
+            "slidesLink": "https://docs.google.com/presentation/d/1HrG4l4UevJC7-xEkoNWysQ-Ze1b8KrdqEU6yOjBQokg/edit?usp=sharing",
+            "categories": ["Clase"]
+          }
+          
+        ]
+      },
+      "Intermedios": {
+        "description": "Presentaciones vistas en clases del grupo de intermedios.",
+        "presentations": [
+          {
+            "title": "Teoría de Números",
+            "sidebarPosition": 1,
+            "description": "Presentación de Teoría de Números.",
+            "slidesLink": "https://docs.google.com/presentation/d/1HrG4l4UevJC7-xEkoNWysQ-Ze1b8KrdqEU6yOjBQokg/edit?usp=sharing",
+            "categories": ["Clase"]
+          },
+          {
+            "title": "Geometría",
+            "sidebarPosition": 1,
+            "description": "Presentación de Geometría.",
+            "slidesLink": "https://docs.google.com/presentation/d/1xeLTfqqT38yhClEMq1jbpw9G18Mm218jb0T_-OAFX1I/edit?usp=sharing",
+            "categories": ["Clase"]
+          }
+        ]
+      }
+    }
+  }
+}

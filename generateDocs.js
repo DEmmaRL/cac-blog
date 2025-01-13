@@ -11,60 +11,55 @@ const docsPath = path.join(__dirname, 'docs', 'Presentaciones');
 const data = require(jsonPath);
 
 // Función para eliminar archivos existentes
+// TODO : BUG: Hay un error en esta función que no elimina correctamente los archivos
 const deleteExistingFiles = () => {
-  if (fs.existsSync(docsPath)) {
-    fs.readdirSync(docsPath).forEach((section) => {
-      const sectionPath = path.join(docsPath, section);
-      fs.readdirSync(sectionPath).forEach((file) => {
-        fs.unlinkSync(path.join(sectionPath, file));
+    if (fs.existsSync(docsPath)) {
+      fs.readdirSync(docsPath).forEach((section) => {
+        const sectionPath = path.join(docsPath, section);
+        if (fs.lstatSync(sectionPath).isDirectory()) {
+          fs.readdirSync(sectionPath).forEach((file) => {
+            fs.unlinkSync(path.join(sectionPath, file));
+          });
+          fs.rmdirSync(sectionPath);
+        } else {
+          fs.unlinkSync(sectionPath);
+        }
       });
-      fs.rmdirSync(sectionPath);
-    });
-  }
-};
+    }
+  };
+  
 
-// Función para generar `_category_.json` en la carpeta general
-const generateMainCategory = () => {
-  const mainCategoryPath = path.join(docsPath, '_category_.json');
-  const mainCategoryContent = {
-    label: 'Presentaciones',
-    position: 1,
+// Función para crear carpetas y archivos de categorías
+const createCategoryJson = (folderPath, label, description) => {
+  const categoryJsonPath = path.join(folderPath, '_category_.json');
+  const content = {
+    label,
     link: {
       type: 'generated-index',
-      description: 'Sección principal de todas las presentaciones organizadas por años o categorías.',
+      description,
     },
   };
-  fs.writeFileSync(mainCategoryPath, JSON.stringify(mainCategoryContent, null, 2));
+  fs.writeFileSync(categoryJsonPath, JSON.stringify(content, null, 2));
 };
 
-// Función para generar archivos .mdx y los _category_.json
-const generateDocs = () => {
-  Object.keys(data).forEach((section) => {
-    const sectionPath = path.join(docsPath, section);
+// Función para generar documentos en subsecciones
+const generateSubsectionDocs = (sectionPath, subsectionName, subsectionData) => {
+  const subsectionPath = path.join(sectionPath, subsectionName);
 
-    // Crear carpeta de la sección si no existe
-    if (!fs.existsSync(sectionPath)) {
-      fs.mkdirSync(sectionPath, { recursive: true });
-    }
+  // Crear carpeta de la subsección
+  if (!fs.existsSync(subsectionPath)) {
+    fs.mkdirSync(subsectionPath, { recursive: true });
+  }
 
-    // Crear el archivo `_category_.json` para la sección
-    const categoryJsonPath = path.join(sectionPath, '_category_.json');
-    const categoryJsonContent = {
-      label: section,
-      position: undefined, // Dejar indefinido para orden alfabético
-      link: {
-        type: 'generated-index',
-        description: `Presentaciones de la sección ${section}`,
-      },
-    };
+  // Crear el archivo `_category_.json` para la subsección
+  createCategoryJson(subsectionPath, subsectionName, subsectionData.description);
 
-    fs.writeFileSync(categoryJsonPath, JSON.stringify(categoryJsonContent, null, 2));
-
-    // Generar los archivos de presentaciones dentro de la sección
-    data[section].forEach((presentation) => {
-      const filePath = path.join(sectionPath, `${presentation.title.replace(/ /g, '-')}.mdx`);
-      console.log(`Generando archivo ${filePath}`);
-      const content = `
+  // Generar presentaciones dentro de la subsección
+  subsectionData.presentations.forEach((presentation) => {
+    const safeTitle = presentation.title.replace(/[^a-zA-Z0-9_-]/g, '-');
+    const filePath = path.join(subsectionPath, `${safeTitle}.mdx`);
+    console.log(`Generando archivo ${filePath}`);
+    const content = `
 ---
 title: ${presentation.title}
 sidebar_position: ${presentation.sidebarPosition || 1}
@@ -72,13 +67,34 @@ sidebar_position: ${presentation.sidebarPosition || 1}
 
 # ${presentation.title}
 
-**Descripción:** ${presentation.description}
+${presentation.description}
 
 [Ver presentación completa](${presentation.slidesLink})
 
 **Categorías:** ${presentation.categories.join(', ')}
 `;
-      fs.writeFileSync(filePath, content.trim());
+    fs.writeFileSync(filePath, content.trim());
+  });
+};
+
+// Función para generar documentos principales
+const generateDocs = () => {
+  Object.keys(data).forEach((section) => {
+    const sectionData = data[section];
+    const sectionPath = path.join(docsPath, section);
+
+    // Crear carpeta de la sección principal
+    if (!fs.existsSync(sectionPath)) {
+      fs.mkdirSync(sectionPath, { recursive: true });
+    }
+
+    // Crear `_category_.json` para la sección principal
+    createCategoryJson(sectionPath, section, sectionData.description);
+
+    // Procesar subsecciones dentro de la sección
+    Object.keys(sectionData.sections).forEach((subsectionName) => {
+      const subsectionData = sectionData.sections[subsectionName];
+      generateSubsectionDocs(sectionPath, subsectionName, subsectionData);
     });
   });
 
@@ -98,10 +114,7 @@ const main = () => {
       console.log('Archivos existentes eliminados.');
     }
 
-    // Crear la categoría principal
-    generateMainCategory();
-
-    // Generar documentos y categorías por sección
+    // Generar documentos y categorías
     generateDocs();
     rl.close();
   });
